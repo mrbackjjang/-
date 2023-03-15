@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class p2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner input=new Scanner (System.in);
+		
+		String words[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+		int k = input.nextInt();
+		
+		if(k>10||k<0) {
+			return;
+		}
+		else {
+		
+			System.out.println(words[k]);
+		}
+		
+		
+	}
+
+}
