@@ -1,0 +1,127 @@
+import java.util.Scanner;
+
+
+public class Square {
+
+	
+	public int length;
+	public int x;
+	public int y;
+	
+	
+	//1
+	public Square(int i,int j,int a) {
+		length=i;
+		x=j;
+		y=a;
+		
+	}
+	
+	
+	//2
+	public Square() {	
+	}
+	
+	
+	
+	//3
+	public int getArea() {
+		return length*length;
+	}
+	
+	
+	
+	//4
+	public void move(int delta_x,int delta_y) {
+		x+=delta_x;
+		y+=delta_y;
+	}
+	
+	
+	//5
+	public void move(int delta) {
+		x+=delta;
+		y+=delta;
+	}
+	
+	
+	
+	//6
+	public boolean increase(int delta) {
+		if(length+delta>=0) {
+			length+=delta;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	
+	
+	
+	//7
+	public void exchange(Square s) {
+		int temp=this.length;
+		
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner input=new Scanner(System.in);
+		
+		//1
+		Square s1=new Square(input.nextInt(),input.nextInt(),input.nextInt());
+		System.out.println(s1.length+" "+s1.x+" "+s1.y);
+		
+	
+		//2
+		Square s2=new Square();
+		s2.length=1;
+		s2.x=0;
+		s2.y=0;
+		System.out.println(s2.length+" "+s2.x+" "+s2.y);
+		
+		
+		//3
+		Square s3=new Square(input.nextInt(),input.nextInt(),input.nextInt());
+		System.out.println(s3.getArea());
+		
+		
+	
+		//4
+		Square s4=new Square(input.nextInt(),input.nextInt(),input.nextInt());
+		s4.move(input.nextInt(),input.nextInt());
+		System.out.println(s4.length+" "+s4.x+" "+s4.y);
+		
+		
+		
+		//5
+		Square s5=new Square(input.nextInt(),input.nextInt(),input.nextInt());
+		s5.move(input.nextInt());
+		System.out.println(s5.length+" "+s5.x+" "+s5.y);
+		
+		
+		
+		//6
+		Square s6=new Square(input.nextInt(),input.nextInt(),input.nextInt());
+		System.out.println(s6.increase(input.nextInt()));
+		System.out.println(s6.length+" "+s6.x+" "+s6.y);
+		
+		
+		
+		//7
+		Square s7a=new Square(input.nextInt(),input.nextInt(),input.nextInt());
+		Square s7b=new Square(input.nextInt(),input.nextInt(),input.nextInt());
+		s7a.exchange(s7b);
+		System.out.println(s7a.length+" "+s7a.x+" "+s7a.y);
+		System.out.println(s7b.length+" "+s7b.x+" "+s7b.y);
+		
+		
+	}
+
+}
