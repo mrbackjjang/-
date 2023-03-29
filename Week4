@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+
+public class PolarPoint extends Point {
+
+	private double r,theta;
+	
+	
+	public PolarPoint(double r, double theta) {
+		super(r, theta);
+		this.r=r;
+		this.theta=theta;
+		
+		x=r*Math.cos(theta*Math.PI/180);
+		y=r*Math.sin(theta*Math.PI/180);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public double getR()
+	{
+		return r;
+	};
+	
+	
+	public double getTheta() {
+		return theta;
+	}
+	
+	
+	public double distFromOrigin()
+	{
+		return r;
+	}
+	
+	
+	public void setX(double x) {
+		this.x=x;
+		r=super.distFromOrigin();
+		theta=Math.atan2(this.getY(),this.getX())*180/Math.PI;
+		
+		
+	}
+	
+	
+	public void setY(double y) {
+		this.y=y;
+		r=super.distFromOrigin();
+		theta=Math.atan2(this.getY(),this.getX())*180/Math.PI;
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner input=new Scanner(System.in);
+		
+		
+		
+		
+		
+		PolarPoint pp=new PolarPoint(input.nextDouble(),input.nextDouble());
+		
+		System.out.printf("(%.2f,%.2f)\n",pp.getX(),pp.getY());
+		System.out.printf("%.2f\n",pp.distFromOrigin());
+		
+		
+		pp.setX(input.nextDouble());
+		System.out.printf("(%.2f,%.2f)\n",pp.getR(),pp.getTheta());
+		
+		
+		pp.setY(input.nextDouble());
+		System.out.printf("(%.2f,%.2f)\n",pp.getR(),pp.getTheta());
+	}
+
+}
