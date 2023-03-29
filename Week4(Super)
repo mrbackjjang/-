@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+
+
+public class Point {
+
+	protected double x;
+	protected double y;
+	public Point(double x,double y) {
+		this.x=x;
+		this.y=y;
+	};
+	
+	
+	public double getX() {
+		return x;
+	};
+	
+	
+	public double getY() {
+		return y;
+	};
+	
+	
+	public void setX(double setx) {
+		x=setx;
+	};
+	
+	
+	public void setY(double sety) {
+		y=sety;
+	};
+	
+	
+	public double distFromOrigin() {
+		
+		double pita=x*x+y*y;
+		
+		double length=Math.sqrt(pita);
+		return length;
+	};
+	
+	
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		
+		Point p=new Point(input.nextDouble(),input.nextDouble());
+		
+		
+		System.out.println("("+p.getX()+","+p.getY()+")");
+		
+		p.setX(input.nextDouble());
+		p.setY(input.nextDouble());
+		System.out.println("("+p.getX()+","+p.getY()+")");
+		
+		System.out.printf("%.1f\n",p.distFromOrigin());
+		
+	}
+}
