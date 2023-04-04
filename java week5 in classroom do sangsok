@@ -1,0 +1,93 @@
+//Knight
+
+public class Knight extends Player implements Comparable<Knight>{
+
+	public Knight(String name, int x, int y) {
+		super(name, x, y);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void sound() {
+		System.out.println("히히힝~~!");
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+	
+		System.out.println("knight");
+	}
+
+	@Override
+	public int compareTo(Knight o) {
+		// TODO Auto-generated method stub
+		return this.money-o.money;
+	}
+
+}
+
+
+
+
+//Queen
+
+public class Queen extends Player implements Comparable<Queen> {
+
+	public Queen(String name, int x, int y) {
+		super(name, x, y);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void sound() {
+		// TODO Auto-generated method stub
+
+		System.out.println("오케이오케이~~");
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("queen");
+	}
+
+	@Override
+	public int compareTo(Queen o) {
+		// TODO Auto-generated method stub
+		return this.money-o.money;
+	}
+
+}
+
+
+
+
+//Rook
+
+public class Rook extends Player implements Comparable<Rook> {
+
+	public Rook(String name, int x, int y) {
+		super(name, x, y);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void sound() {
+		// TODO Auto-generated method stub
+
+		System.out.println("부릉부릉부릉~~~~!!!");
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("rook");
+	}
+
+	@Override
+	public int compareTo(Rook o) {
+		// TODO Auto-generated method stub
+		return this.money-o.money;
+	}
+
+}
