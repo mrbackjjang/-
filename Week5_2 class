@@ -1,0 +1,29 @@
+//I1,I2 다중 상속받은 클래스 C
+
+public class C implements I1,I2{
+
+	public static int cnt_f1=0;
+	public static int cnt_f2=0;
+	
+	
+	public int f1() {
+		
+		//System.out.println(cnt_f2);
+		//cnt_f2++;
+		cnt_f1++;
+		return cnt_f2;
+		
+	}
+	
+	
+	
+	
+	public int f2() {
+		// TODO Auto-generated method stub
+		//System.out.println(cnt_f1);
+		//cnt_f1++;
+		cnt_f2++;
+		return cnt_f1;
+	}
+
+}
