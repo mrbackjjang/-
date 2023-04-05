@@ -1,0 +1,37 @@
+//Rook
+
+public class Rook extends Player implements Comparable<Rook> {
+
+	public Rook(String name, int x, int y) {
+		super(name, x, y);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void sound() {
+		// TODO Auto-generated method stub
+
+		System.out.println("부릉부릉부릉~~~~!!!");
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("rook");
+	}
+
+	@Override
+	public int compareTo(Rook o) {
+		// TODO Auto-generated method stub
+		if(this.score>o.score)
+			return -1;
+		else if(this.score==o.score)
+			return this.money-o.money;
+		else
+			return -1;
+	
+		
+		
+	}
+
+}
