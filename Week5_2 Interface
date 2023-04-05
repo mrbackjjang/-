@@ -1,0 +1,18 @@
+
+public interface I1 {
+
+	public abstract int f1();
+	
+	
+}
+
+
+
+
+
+
+public interface I2 {
+
+	
+	public abstract int f2();
+}
