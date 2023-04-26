@@ -1,0 +1,46 @@
+package stringprocess;
+
+public class StringProcessor {
+
+	
+	public String extract_from_within_brackets(String str) {
+		
+		int left_bracket=str.indexOf("{");
+		int right_bracket=str.indexOf("}",left_bracket+1);
+		
+		if(left_bracket==-1||right_bracket==-1||left_bracket>right_bracket)
+			return "";
+		
+		
+		
+		String within_bracket=str.substring(left_bracket+1,right_bracket);
+		
+		return within_bracket;
+		
+	}
+	
+	
+	
+	public String[] split_based_on_comma(String str) {
+		
+		String[] tokens=str.split("\\,");
+	
+		return tokens;
+	}
+	
+	
+	public int count_as(String[] s) {
+		
+		
+		int cnt=0;
+		
+		for(String k:s) {
+			if(k.startsWith("a"))
+				cnt++;
+		}
+		
+		return cnt;
+			
+	}
+	
+}
