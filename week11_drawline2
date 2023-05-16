@@ -1,0 +1,36 @@
+import javax.swing.JFrame;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+
+
+
+public class Paint extends JFrame {
+
+	
+	
+	public Paint() {
+		this.setTitle("직접 제작한 component 활용한 그림판");
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(500,500);
+		
+		
+		Container contentPane=this.getContentPane();
+		contentPane.add(new MyPanel());
+		
+		
+		this.setVisible(true);
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Paint f1=new Paint();
+	}
+
+}
