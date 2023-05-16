@@ -1,0 +1,151 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class MyFrame extends JFrame {
+
+	
+	JTextArea textArea=new JTextArea();
+	
+	JRadioButton buttonBlack=new JRadioButton("Black");
+	JRadioButton buttonBlue=new JRadioButton("Blue");
+	JRadioButton buttonGreen=new JRadioButton("Green");
+	
+	JComboBox<Integer> fontComboBox;
+	Integer fontSizes[]= {20,30,50,100};
+	
+	JMenuItem itemSave=new JMenuItem("Save");
+	
+	
+	
+	public MyFrame(){
+		
+		this.setTitle("text editor");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(500,300);
+		
+		
+		Container contentPane=this.getContentPane();		
+		contentPane.setLayout(new BorderLayout(5,5));
+		
+		
+		
+		JScrollPane sPane=new JScrollPane(textArea);
+		contentPane.setLayout(new BorderLayout());
+		
+		
+		contentPane.add(new JTextField(),BorderLayout.CENTER);
+		contentPane.add(new JTextArea(),BorderLayout.CENTER);
+		
+		
+		JPanel panel=new JPanel();
+		panel.setLayout(new GridLayout(4,1));
+		contentPane.add(panel,BorderLayout.EAST);
+		
+		
+		
+		
+		
+
+		
+		panel.add(buttonBlack);
+		panel.add(buttonBlue);
+		panel.add(buttonGreen);
+		
+		
+		
+		ButtonGroup group=new ButtonGroup();
+		group.add(buttonBlack);
+		group.add(buttonBlue);
+		group.add(buttonGreen);
+		
+		
+		buttonBlack.setSelected(true);
+		
+		
+		buttonBlue.setForeground(Color.blue);
+		buttonGreen.setForeground(Color.green);
+		
+		
+		
+		fontComboBox=new JComboBox<Integer>(fontSizes);
+		panel.add(fontComboBox);
+		
+		
+		
+		JMenuBar menuBar=new JMenuBar();
+		JMenu menuFile=new JMenu("File");
+		
+		menuBar.add(menuFile);
+		menuBar.add(itemSave);
+		this.setJMenuBar(menuBar);
+		
+		
+		
+		//나중에 객체 하나로 통일해서 하는게 메모리적으로 좋음. MyActionListener 을 객체 하나 생성해서 그걸로 돌리기 ㄱㄱ
+		buttonBlack.addActionListener(new MyActionListener());
+		buttonBlue.addActionListener(new MyActionListener());
+		buttonGreen.addActionListener(new MyActionListener());
+		
+		fontComboBox.addActionListener(new MyActionListener());
+		
+		itemSave.addActionListener(new MyActionListener());
+		
+		
+		this.setVisible(true);
+	}
+	
+	
+	
+	class MyActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			if(e.getSource()==buttonBlack)
+				textArea.setForeground(Color.black);
+			
+			
+			else if(e.getSource()==buttonBlue)
+				textArea.setForeground(Color.blue);
+			
+			else if(e.getSource()==buttonGreen)
+				textArea.setForeground(Color.green);
+			
+			else if(e.getSource()==itemSave)
+				System.out.println(JOptionPane.showInputDialog("파일 이름을 입력해 주세요"));
+			
+			
+				
+		}
+		
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		MyFrame f1=new MyFrame();
+		
+	}
+
+}
