@@ -1,0 +1,104 @@
+import javax.swing.JPanel;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.Vector;
+
+
+
+public class MyPanel extends JPanel {
+
+	
+	Line currentLine=null;
+	Vector<Line> lines=new Vector<Line>();
+	
+	
+	
+	
+	public MyPanel() {
+		this.setBackground(Color.pink);
+		
+		
+		MyMouseListener listener=new MyMouseListener();
+		
+		this.addMouseListener(listener);
+		this.addMouseMotionListener(listener);
+		
+	}
+	
+	
+	
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		if(currentLine!=null)
+			g.drawLine(currentLine.x1, currentLine.y1, currentLine.x2, currentLine.y2);
+		
+		for(Line line :lines)
+			g.drawLine(line.x1,line.y1, line.x2, line.y2);
+	}
+	
+	
+	
+	
+	class Line{
+		public int x1,y1,x2,y2;
+	}
+	
+	
+	class MyMouseListener implements MouseListener,MouseMotionListener{
+
+		@Override
+		public void mouseDragged(MouseEvent e) {
+			// TODO Auto-generated method stub
+			currentLine.x2=e.getX();
+			currentLine.y2=e.getY();
+			repaint();
+		}
+
+		@Override
+		public void mouseMoved(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			currentLine=new Line();
+			currentLine.x1=e.getX();
+			currentLine.y1=e.getY();
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			lines.add(currentLine);
+			currentLine=null;
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	
+	
+}
